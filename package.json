@@ -1,0 +1,15 @@
+{
+  "name": "release-automation",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:paszkowskiDamian/release-automation.git",
+  "author": "Damian Paszkowski <paszko.damian@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "release-it": "^14.12.1"
+  },
+  "scripts": {
+    "release": "release-it"
+  }
+}
