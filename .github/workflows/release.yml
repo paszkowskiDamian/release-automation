@@ -62,7 +62,9 @@ jobs:
       run: yarn install --prefer-offline --frozen-lockfile
 
     - name: release version
-      run: npm run release ${{ env.RELEASE_TYPE }} --npm.skipChecks -ci
+      run: npm run release ${{ env.RELEASE_TYPE }}
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Merge dev -> main
       uses: devmasx/merge-branch@master
