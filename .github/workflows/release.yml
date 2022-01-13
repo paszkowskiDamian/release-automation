@@ -65,7 +65,8 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-    - uses: actions/checkout@v2
+    - name: Log
+      run: git log
     
     - name: Merge dev -> main
       uses: devmasx/merge-branch@master
