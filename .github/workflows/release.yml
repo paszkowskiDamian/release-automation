@@ -61,7 +61,7 @@ jobs:
       run: yarn install --prefer-offline --frozen-lockfile
 
     - name: release version
-      run: npm run release ${{ env.RELEASE_TYPE }}
+      run: npm run release -- ${{ env.RELEASE_TYPE }} --ci
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
