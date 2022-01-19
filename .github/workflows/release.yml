@@ -27,6 +27,8 @@ jobs:
     # Runs a single command using the runners shell
     - name: Checkout
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: "Determine Release Type"
       run: |
         if ${{ contains(github.event.inputs.release_type, 'major') }}; then
@@ -70,13 +72,10 @@ jobs:
     
     - name: Merge dev -> main
       run: |
-          git config --global user.email "${GITHUB_ACTOR}"
-          git config --global user.name "${GITHUB_ACTOR}@users.noreply.github.com"
           git status
           git pull
-          git checkout dev
-          git status
+          git fetch
           git checkout main
-          git merge dev --no-edit
-          git push
+          git rebase dev
+          git push origin main
           git status
